@@ -84,7 +84,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio.primary.msm8916.so:system/lib/hw/audio.primary.msm8916.so \
     $(LOCAL_PATH)/audio/audio_effects_vendor.conf:system/vendor/etc/audio_effects.conf \
-#    $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths_mtp.xml:system/etc/mixer_paths_mtp.xml \
 
@@ -274,3 +274,9 @@ PRODUCT_COPY_FILES += \
 # WiFi Display
 PRODUCT_BOOT_JARS += \
 	WfdCommon
+
+# Temasek ROM OTA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ota.romname=temasek-idol347 \
+    ro.ota.version=$(shell date +%F | sed s@-@@g) \
+    ro.ota.manifest=http://rom.jeefo.net/idol347/ota.xml
